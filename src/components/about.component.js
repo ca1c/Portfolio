@@ -11,7 +11,7 @@ class About extends Component {
     render() {
         return (
             <div>
-                <CardContent>
+                <div>
                     <Grid container rowSpacing={3} columnSpacing={3}>
                         <Grid item xs={4}>
                             <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
@@ -43,7 +43,7 @@ class About extends Component {
                             <Typography>This is the text for my hobbies.</Typography>
                         </Grid>
                     </Grid>
-                </CardContent>
+                </div>
             </div>
         );
     }
