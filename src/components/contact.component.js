@@ -5,12 +5,13 @@ import Container from '@mui/material/Container';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
+export default function Contact(props) {
 
-export default function Contact() {
     return (
         <div>
-            <div>
+            <FormControl>
                 <Grid container rowSpacing={3} columnSpacing={3}>
                     <Grid item xs={4}>
                         <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
@@ -31,8 +32,11 @@ export default function Contact() {
                     <Grid item xs={12}>
                         <TextField  label="Reason For Contact" variant="outlined" rows={4} multiline sx={{width: "100%"}}/>
                     </Grid>
+                    <Grid item xs={12}>
+                        <Button>Submit</Button>
+                    </Grid>
                 </Grid>
-            </div>
+            </FormControl>
         </div>
     );
 }

@@ -35,24 +35,17 @@ function App() {
   
   const darkTheme = createTheme({
     palette: {
-      background: {
-        default: "#002054",
-        secondary: "#03368a"
-      },
+      mode: 'dark',
       primary: {
-        main: "#ffffff"
-      },
-      secondary: {
-        main: "#222222"
-      },
-    }
+        main: "#FFFFFF"
+      }
+    },
   })
-
-  const components = [<About />, <Contact />, <Projects />, <SStack />];
 
   const [theme, setTheme] = useState("light");
   const [compIndex, setCompIndex] = useState(0);
-  // const [selectedComponent, setSelectedComponent] = useState(components[compIndex]);
+
+  const components = [<About />, <Contact theme={theme}/>, <Projects />, <SStack />];
 
   function switchTheme() {
     setTheme(theme === "light" ? "dark" : "light");
