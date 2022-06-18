@@ -4,6 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 
 export default function Contact() {
@@ -15,30 +16,20 @@ export default function Contact() {
                         <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
                     </Grid>
                     <Grid item xs={4}>
-                        <Typography variant="h3">Contact</Typography>
+                        <Typography variant="h3" sx={{textAlign: "center"}}>Contact</Typography>
                     </Grid>
                     <Grid item xs={4}></Grid>
-                    {/* Headings */}
-                    <Grid item xs={4}>
-                        <Typography variant="h5">Interests</Typography>
+                    <Grid item xs={6}>
+                        <TextField label="First Name" variant="outlined" sx={{width: "100%"}}/>
                     </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="h5">Personality</Typography>
+                    <Grid item xs={6}>
+                        <TextField label="Last Name" variant="outlined" sx={{width: "100%"}}/>
                     </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="h5">Hobbies</Typography>
+                    <Grid item xs={12}>
+                        <TextField label="Email" variant="outlined" sx={{width: "100%"}}/>
                     </Grid>
-                    {/* Bodies */}
-                    <Grid item xs={4}>
-                        <Typography>
-                            This is the text about my interests
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography>This is my text for personality.</Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography>This is the text for my hobbies.</Typography>
+                    <Grid item xs={12}>
+                        <TextField  label="Reason For Contact" variant="outlined" rows={4} multiline sx={{width: "100%"}}/>
                     </Grid>
                 </Grid>
             </div>
