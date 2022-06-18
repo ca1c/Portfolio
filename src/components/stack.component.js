@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-export default function Stack() {
+export default function SStack() {
     return (
         <div>
             <div>

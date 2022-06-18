@@ -4,12 +4,13 @@ import { Routes, Route} from 'react-router-dom';
 import About from './components/about.component';
 import Contact from './components/contact.component';
 import Projects from './components/projects.component';
-import Stack from './components/stack.component';
+import SStack from './components/stack.component';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -47,7 +48,7 @@ function App() {
     }
   })
 
-  const components = [<About />, <Contact />, <Projects />, <Stack />];
+  const components = [<About />, <Contact />, <Projects />, <SStack />];
 
   const [theme, setTheme] = useState("light");
   const [compIndex, setCompIndex] = useState(0);
@@ -87,20 +88,20 @@ function App() {
         >
           <Grid item xs={3}>
             <Paper className="mainCard" sx={{bgcolor: "background.secondary", color: "primary.main"}}>
-              { components[compIndex] }
-              <div className="buttons">
-                <Grid container spacing={0}>
-                  <Grid item xs={5}>
-                    <Button onClick={leftButton}><ChevronLeftIcon /></Button>
-                  </Grid>
-                  <Grid item xs={1}>
-                    <Button onClick={switchTheme}>theme</Button>
-                  </Grid>
-                  <Grid item xs={5}>
-                    <Button onClick={rightButton}><ChevronRightIcon /></Button>
-                  </Grid>
+              <Grid container direction="column" spacing={{xs: 10, sm: 10, md: 20, lg: 20}}>
+                <Grid item xs={6}>
+                  { components[compIndex] }
                 </Grid>
-              </div>
+                <Grid item xs={6}>
+                  <div className="buttons">
+                    <Stack spacing={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center">
+                      <Button onClick={leftButton}><ChevronLeftIcon /></Button>
+                      <Button onClick={switchTheme}>theme</Button>
+                      <Button onClick={rightButton}><ChevronRightIcon /></Button>
+                    </Stack>
+                  </div>
+                </Grid>
+              </Grid>
             </Paper>
           </Grid>
         </Grid>
