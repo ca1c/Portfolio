@@ -10,9 +10,12 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import './App.css';
+import { ChevronLeft } from '@mui/icons-material';
 
 /*linear-gradient(0deg, #e2008b 0%, #fdb146 49%, #fde767 100%)*/
 
@@ -85,9 +88,19 @@ function App() {
           <Grid item xs={3}>
             <Paper className="mainCard" sx={{bgcolor: "background.secondary", color: "primary.main"}}>
               { components[compIndex] }
-              <Button onClick={switchTheme}>theme</Button>
-              <Button onClick={leftButton}>Left</Button>
-              <Button onClick={rightButton}>Right</Button>
+              <div className="buttons">
+                <Grid container spacing={0}>
+                  <Grid item xs={5}>
+                    <Button onClick={leftButton}><ChevronLeftIcon /></Button>
+                  </Grid>
+                  <Grid item xs={1}>
+                    <Button onClick={switchTheme}>theme</Button>
+                  </Grid>
+                  <Grid item xs={5}>
+                    <Button onClick={rightButton}><ChevronRightIcon /></Button>
+                  </Grid>
+                </Grid>
+              </div>
             </Paper>
           </Grid>
         </Grid>
