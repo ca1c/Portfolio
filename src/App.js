@@ -44,11 +44,31 @@ function App() {
     }
   })
 
+  const components = [<About />, <Contact />, <Projects />, <Stack />];
+
   const [theme, setTheme] = useState("light");
+  const [compIndex, setCompIndex] = useState(0);
+  // const [selectedComponent, setSelectedComponent] = useState(components[compIndex]);
 
   function switchTheme() {
     setTheme(theme === "light" ? "dark" : "light");
     console.log(theme);
+  }
+
+  function leftButton() {
+    if(compIndex === 0) {
+      setCompIndex(components.length - 1);
+    } else {
+      setCompIndex(compIndex - 1);
+    }
+  }
+
+  function rightButton() {
+    if(compIndex === components.length - 1) {
+      setCompIndex(0);
+    } else {
+      setCompIndex(compIndex + 1);
+    }
   }
 
   return (
@@ -64,8 +84,10 @@ function App() {
         >
           <Grid item xs={3}>
             <Paper className="mainCard" sx={{bgcolor: "background.secondary", color: "primary.main"}}>
-              <About/>
+              { components[compIndex] }
               <Button onClick={switchTheme}>theme</Button>
+              <Button onClick={leftButton}>Left</Button>
+              <Button onClick={rightButton}>Right</Button>
             </Paper>
           </Grid>
         </Grid>
