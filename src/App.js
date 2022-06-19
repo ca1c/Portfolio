@@ -43,7 +43,7 @@ function App() {
     },
   })
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const [compIndex, setCompIndex] = useState(0);
 
   const components = [<About />, <Contact theme={theme}/>, <Projects />, <SStack />];
