@@ -7,6 +7,7 @@ import Projects from './components/projects.component';
 import SStack from './components/stack.component';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
@@ -81,20 +82,28 @@ function App() {
         >
           <Grid item xs={3}>
             <Paper className="mainCard" sx={{bgcolor: "background.secondary", color: "primary.main"}}>
-              <Grid container direction="column" spacing={{xs: 10, sm: 10, md: 20, lg: 20}}>
-                <Grid item xs={6}>
-                  { components[compIndex] }
+              <Box sx={{flexGrow: 1}}>
+                <Grid 
+                  container 
+                  direction="column"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{minHeight: "60vh"}}
+                >
+                  <Grid item xs={6}>
+                    { components[compIndex] }
+                  </Grid>
+                  <Grid item xs={6}>
+                    <div className="buttons">
+                      <Stack spacing={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center">
+                        <Button onClick={leftButton}><ChevronLeftIcon /></Button>
+                        <Button onClick={switchTheme}>theme</Button>
+                        <Button onClick={rightButton}><ChevronRightIcon /></Button>
+                      </Stack>
+                    </div>
+                  </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                  <div className="buttons">
-                    <Stack spacing={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center">
-                      <Button onClick={leftButton}><ChevronLeftIcon /></Button>
-                      <Button onClick={switchTheme}>theme</Button>
-                      <Button onClick={rightButton}><ChevronRightIcon /></Button>
-                    </Stack>
-                  </div>
-                </Grid>
-              </Grid>
+              </Box>
             </Paper>
           </Grid>
         </Grid>
