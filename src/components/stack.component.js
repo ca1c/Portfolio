@@ -15,7 +15,7 @@ export default function SStack() {
                         <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
                     </Grid>
                     <Grid item xs={4}>
-                        <Typography variant="h3">Stack</Typography>
+                        <Typography variant="h3" sx={{textAlign: "center"}}>Stack</Typography>
                     </Grid>
                     <Grid item xs={4}></Grid>
                     {/* Headings */}

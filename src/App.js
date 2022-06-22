@@ -95,7 +95,7 @@ function App() {
                   </Grid>
                   <Grid item xs={6}>
                     <div className="buttons">
-                      <Stack spacing={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center">
+                      <Stack spacing={3} direction={{ xs: 'row', sm: 'row' }} justifyContent="center" alignItems="center">
                         <Button onClick={leftButton}><ChevronLeftIcon /></Button>
                         <Button onClick={switchTheme}>theme</Button>
                         <Button onClick={rightButton}><ChevronRightIcon /></Button>
