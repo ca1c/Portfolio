@@ -10,37 +10,32 @@ export default function Projects() {
     return (
         <div>
             <div>
-                <Grid container rowSpacing={3} columnSpacing={3}>
-                    <Grid item xs={4}>
-                        <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+            <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
+                        <Grid item xs={4}>
+                            <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+                        </Grid>
+                        <Grid item xs={4} >
+                            <Typography variant="h3" sx={{textAlign: "center"}}>Projects</Typography>
+                        </Grid>
+                        <Grid item xs={4}></Grid>
+                        {/* Headings */}
+                        <Grid item xs={12} sm={6} md={4} lg={4}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>Interests</Typography>
+                            <Typography sx={{textAlign: "center"}}>
+                                This is the text about my interests
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} lg={4}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>Personality</Typography>
+                            <Typography sx={{textAlign: "center"}}>This is my text for personality.</Typography>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={4} lg={4}>
+                            <Typography variant="h5" sx={{textAlign: "center"}}>Hobbies</Typography>
+                            <Typography sx={{textAlign: "center"}}>This is the text for my hobbies.</Typography>
+                        </Grid>
+                        {/* Bodies */}
+
                     </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="h3" sx={{textAlign: "center"}}>Projects</Typography>
-                    </Grid>
-                    <Grid item xs={4}></Grid>
-                    {/* Headings */}
-                    <Grid item xs={4}>
-                        <Typography variant="h5">Interests</Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="h5">Personality</Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="h5">Hobbies</Typography>
-                    </Grid>
-                    {/* Bodies */}
-                    <Grid item xs={4}>
-                        <Typography>
-                            This is the text about my interests
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography>This is my text for personality.</Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Typography>This is the text for my hobbies.</Typography>
-                    </Grid>
-                </Grid>
             </div>
         </div>
     );
