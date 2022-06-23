@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
 import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
 import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import ProjectCard from './projectCard.component';
 
 export default function Projects() {
+    const projectData = [
+        {
+            name: "Project 1",
+            key: 1,
+        },
+        {
+            name: "Project 2",
+            key: 2,
+        },
+        {
+            name: "Project 3",
+            key: 3,
+        },
+        {
+            name: "Project 4",
+            key: 4,
+        }
+    ];
+
     return (
         <div>
             <div>
@@ -19,21 +40,14 @@ export default function Projects() {
                         </Grid>
                         <Grid item xs={4}></Grid>
                         {/* Headings */}
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>Interests</Typography>
-                            <Typography sx={{textAlign: "center"}}>
-                                This is the text about my interests
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>Personality</Typography>
-                            <Typography sx={{textAlign: "center"}}>This is my text for personality.</Typography>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4} lg={4}>
-                            <Typography variant="h5" sx={{textAlign: "center"}}>Hobbies</Typography>
-                            <Typography sx={{textAlign: "center"}}>This is the text for my hobbies.</Typography>
-                        </Grid>
-                        {/* Bodies */}
+                        
+                        {
+                            projectData.map((project) => 
+                                <Grid item xs={12} sm={12} md={6} lg={6} key={project.key}>
+                                    <ProjectCard name={project.name}/>
+                                </Grid>
+                            )
+                        }
 
                     </Grid>
             </div>
