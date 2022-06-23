@@ -21,7 +21,7 @@ class Projects extends Component {
 
     // API call to GET github data
     componentDidMount() {
-        axios.get("http://api.github.com/users/ca1c/repos")
+        axios.get("https://api.github.com/users/ca1c/repos")
             .then((res) => {
                 const selectedProjects = res.data.filter(repo => this.state.projectNames.includes(repo.name));
                 this.setState({
@@ -51,7 +51,7 @@ class Projects extends Component {
                         {
                             this.state.projectData.map((project) => 
                                 <Grid item xs={12} sm={12} md={6} lg={6} key={project.id}>
-                                    <ProjectCard name={project.name}/>
+                                    <ProjectCard name={project.name} githubLink={project.html_url} description={project.description}/>
                                 </Grid>
                             )
                         }
