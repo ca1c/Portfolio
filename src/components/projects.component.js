@@ -7,31 +7,38 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ProjectCard from './projectCard.component';
+import axios from 'axios';
 
-export default function Projects() {
-    const projectData = [
-        {
-            name: "Project 1",
-            key: 1,
-        },
-        {
-            name: "Project 2",
-            key: 2,
-        },
-        {
-            name: "Project 3",
-            key: 3,
-        },
-        {
-            name: "Project 4",
-            key: 4,
+class Projects extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            projectData: [],
+            projectNames: ["ChessMem", "hypoterra", "panalyze", "simpleBlog-client"],
         }
-    ];
+    }
 
-    return (
-        <div>
+    // API call to GET github data
+    componentDidMount() {
+        axios.get("http://api.github.com/users/ca1c/repos")
+            .then((res) => {
+                const selectedProjects = res.data.filter(repo => this.state.projectNames.includes(repo.name));
+                this.setState({
+                    projectData: selectedProjects
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    
+    render() {
+        return (
             <div>
-            <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
+                <div>
+                    <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
                         <Grid item xs={4}>
                             <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
                         </Grid>
@@ -42,15 +49,18 @@ export default function Projects() {
                         {/* Headings */}
                         
                         {
-                            projectData.map((project) => 
-                                <Grid item xs={12} sm={12} md={6} lg={6} key={project.key}>
+                            this.state.projectData.map((project) => 
+                                <Grid item xs={12} sm={12} md={6} lg={6} key={project.id}>
                                     <ProjectCard name={project.name}/>
                                 </Grid>
                             )
                         }
 
                     </Grid>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
+
+export default Projects;
