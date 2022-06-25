@@ -42,15 +42,24 @@ class Contact extends Component {
     submitMessage() {
         let config = {
             headers: {"Access-Control-Allow-Origin": "*"}
-          }
+        }
 
-        axios.post(process.env.REACT_APP_CONTACT_POST, {
-            fName: this.state.fName,
-            lName: this.state.lName,
-            email: this.state.email,
-            bodyText: this.state.bodyText,
-        },
-        config).then((res) => {
+        axios({
+            method: 'post',
+            url: process.env.REACT_APP_CONTACT_POST,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+            withCredentials: true,
+            credentials: 'same-origin',
+            data: {
+                fName: this.state.fName,
+                lName: this.state.lName,
+                email: this.state.email,
+                bodyText: this.state.bodyText,
+            }
+        }).then((res) => {
             this.setState({
                 snackBarOpen: true,
             });
