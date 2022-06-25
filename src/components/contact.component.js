@@ -48,7 +48,7 @@ class Contact extends Component {
             method: 'post',
             url: process.env.REACT_APP_CONTACT_POST,
             headers: {
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'https://portfolio-ca1c.vercel.app/',
                 'Content-Type': 'application/json',
             },
             withCredentials: false,
