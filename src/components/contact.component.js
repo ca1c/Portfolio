@@ -51,8 +51,7 @@ class Contact extends Component {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
-            withCredentials: true,
-            credentials: 'same-origin',
+            withCredentials: false,
             data: {
                 fName: this.state.fName,
                 lName: this.state.lName,
