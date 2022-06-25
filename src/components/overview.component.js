@@ -7,9 +7,6 @@ import ProfileImage from './img/IMG_1980.jpg';
 
 
 class Overview extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -53,10 +50,10 @@ class Overview extends Component {
                                         <Link href="https://github.com/ca1c">
                                             <GitHubIcon />
                                         </Link>
-                                        <Link>
+                                        <Link href="https://www.linkedin.com/in/talon-bragg-0a2491242/">
                                             <LinkedInIcon />
                                         </Link>
-                                        <Link>
+                                        <Link href="https://twitter.com/ca1cdev">
                                             <TwitterIcon />
                                         </Link>
                                     </Stack>
