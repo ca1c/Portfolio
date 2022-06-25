@@ -1,40 +1,105 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
-export default function Contact(props) {
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import axios from 'axios';
 
-    return (
-        <div>
-            <FormControl>
-                <Grid container rowSpacing={3} columnSpacing={3}>
-                    <Grid item xs={4}>
-                        <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+class Contact extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            fName: "",
+            lName: "",
+            email: "",
+            bodyText: "",
+            snackBarOpen: false,
+        }
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.submitMessage = this.submitMessage.bind(this);
+        this.snackBarClose = this.snackBarClose.bind(this);
+    }
+
+    handleInputChange(e) {
+        const { name, value } = e.target;
+
+        this.setState({
+            [name]: value,
+        })
+    }
+
+    submitMessage() {
+        let config = {
+            headers: {"Access-Control-Allow-Origin": "*"}
+          }
+
+        axios.post(process.env.REACT_APP_CONTACT_POST, {
+            fName: this.state.fName,
+            lName: this.state.lName,
+            email: this.state.email,
+            bodyText: this.state.bodyText,
+        },
+        config).then((res) => {
+            this.setState({
+                snackBarOpen: true,
+            });
+        })
+    }
+
+    snackBarClose() {
+        this.setState({
+            snackBarOpen: false,
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <FormControl>
+                    <Grid container rowSpacing={3} columnSpacing={3}>
+                        <Grid item xs={4}>
+                            <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Typography variant="h3" sx={{textAlign: "center"}}>Contact</Typography>
+                        </Grid>
+                        <Grid item xs={4}></Grid>
+                        <Grid item xs={6}>
+                            <TextField value={this.state.fName} label="First Name" name="fName" variant="outlined" sx={{width: "100%"}} onChange={this.handleInputChange}/>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField value={this.state.lName} label="Last Name" name="lName" variant="outlined" sx={{width: "100%"}} onChange={this.handleInputChange}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField value={this.state.email} label="Email" name="email" variant="outlined" sx={{width: "100%"}} onChange={this.handleInputChange}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField value={this.state.bodyText} label="Message" name="bodyText" variant="outlined" rows={4} multiline sx={{width: "100%"}} onChange={this.handleInputChange}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button onClick={this.submitMessage}>Submit</Button>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant="h3" sx={{textAlign: "center"}}>Contact</Typography>
-                    </Grid>
-                    <Grid item xs={4}></Grid>
-                    <Grid item xs={6}>
-                        <TextField label="First Name" variant="outlined" sx={{width: "100%"}}/>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField label="Last Name" variant="outlined" sx={{width: "100%"}}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField label="Email" variant="outlined" sx={{width: "100%"}}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField  label="Reason For Contact" variant="outlined" rows={4} multiline sx={{width: "100%"}}/>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Button>Submit</Button>
-                    </Grid>
-                </Grid>
-            </FormControl>
-        </div>
-    );
+                </FormControl>
+                <Snackbar open={this.state.snackBarOpen} autoHideDuration={6000} onClose={this.snackBarClose}>
+                    <Alert onClose={this.snackBarClose} severity="success" sx={{ width: '100%' }}>
+                        Message Sent!
+                    </Alert>
+                </Snackbar>
+            </div>
+        );
+    }
 }
+
+export default Contact;
