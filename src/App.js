@@ -4,7 +4,7 @@ import { Routes, Route} from 'react-router-dom';
 import About from './components/about.component';
 import Contact from './components/contact.component';
 import Projects from './components/projects.component';
-import SStack from './components/stack.component';
+import Overview from './components/overview.component';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -46,7 +46,7 @@ function App() {
   const [theme, setTheme] = useState("dark");
   const [compIndex, setCompIndex] = useState(0);
 
-  const components = [<About />, <Projects />, <Contact/>];
+  const components = [<Overview />, <About />, <Projects />, <Contact/>];
 
   function switchTheme() {
     setTheme(theme === "light" ? "dark" : "light");
