@@ -39,7 +39,7 @@ class Projects extends Component {
                 <Fade in={this.state.projectData.length !== 0} {...(this.state.projectData.length !== 0 ? { timeout: 1000 } : {})}>
                     <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
                         <Grid item xs={4}>
-                            <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
+                            <Avatar sx={{width: 50, height: 50 }} src={logo} className="scale"></Avatar>
                         </Grid>
                         <Grid item xs={4} >
                             <Typography variant="h3" sx={{textAlign: "center"}}>Projects</Typography>
