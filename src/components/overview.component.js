@@ -4,6 +4,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import ProfileImage from './img/IMG_1980.jpg';
+import logo from './img/mylogo.png';
 
 
 class Overview extends Component {
@@ -13,7 +14,7 @@ class Overview extends Component {
             <div>
                 <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
                     <Grid item xs={4} sm={4} md={4} lg={4}>
-                        <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+                        <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
                     </Grid>
                     <Grid item xs={4} sm={4} md={4} lg={4}>
                         <Typography variant="h3" sx={{textAlign: "center"}}>Talon Bragg</Typography>

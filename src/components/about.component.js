@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import logo from './img/mylogo.png';
 
 class About extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class About extends Component {
                 <div>
                     <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
                         <Grid item xs={4}>
-                            <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+                            <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
                         </Grid>
                         <Grid item xs={4} >
                             <Typography variant="h3" sx={{textAlign: "center"}}>About</Typography>

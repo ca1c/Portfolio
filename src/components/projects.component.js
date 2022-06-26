@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ProjectCard from './projectCard.component';
 import axios from 'axios';
+import logo from './img/mylogo.png';
 
 class Projects extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class Projects extends Component {
                 <div>
                     <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
                         <Grid item xs={4}>
-                            <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+                            <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
                         </Grid>
                         <Grid item xs={4} >
                             <Typography variant="h3" sx={{textAlign: "center"}}>Projects</Typography>

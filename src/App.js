@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import logo from './logo.svg';
-import { Routes, Route} from 'react-router-dom';
 import About from './components/about.component';
 import Contact from './components/contact.component';
 import Projects from './components/projects.component';
@@ -33,7 +32,7 @@ function App() {
       }
     }
   });
-  
+
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -83,8 +82,8 @@ function App() {
           <Grid item xs={3}>
             <Paper className="mainCard" sx={{bgcolor: "background.secondary", color: "primary.main"}}>
               <Box sx={{flexGrow: 1}}>
-                <Grid 
-                  container 
+                <Grid
+                  container
                   direction="column"
                   justifyContent="space-between"
                   alignItems="center"

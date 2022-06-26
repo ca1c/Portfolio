@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import axios from 'axios';
+import logo from './img/mylogo.png';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -70,7 +71,7 @@ class Contact extends Component {
                 <FormControl>
                     <Grid container rowSpacing={3} columnSpacing={3}>
                         <Grid item xs={4}>
-                            <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+                            <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
                         </Grid>
                         <Grid item xs={4}>
                             <Typography variant="h3" sx={{textAlign: "center"}}>Contact</Typography>
