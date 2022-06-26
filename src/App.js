@@ -81,7 +81,7 @@ function App() {
             minHeight: '80vh',
             height: {
               xs: "100%",
-              sm: "100%"
+              sm: "100%",
             }
           }}
         >

@@ -80,7 +80,7 @@ class Contact extends Component {
                   <Fade in={this.state.mounted} {...(this.state.mounted ? { timeout: 1000 } : {})}>
                     <Grid container rowSpacing={3} columnSpacing={3}>
                         <Grid item xs={4}>
-                            <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
+                            <Avatar sx={{width: 50, height: 50 }} src={logo} className="scale"></Avatar>
                         </Grid>
                         <Grid item xs={4}>
                             <Typography variant="h3" sx={{textAlign: "center"}}>Contact</Typography>
