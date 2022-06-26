@@ -77,7 +77,13 @@ function App() {
           direction="column"
           alignItems="center"
           justifyContent="center"
-          style={{ minHeight: '80vh' }}
+          style={{
+            minHeight: '80vh',
+            height: {
+              xs: "100%",
+              sm: "100%"
+            }
+          }}
         >
           <Grid item xs={3}>
             <Paper className="mainCard" sx={{bgcolor: "background.secondary", color: "primary.main"}}>
