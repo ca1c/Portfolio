@@ -3,6 +3,7 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import ProjectCard from './projectCard.component';
+import Fade from '@mui/material/Fade';
 import axios from 'axios';
 import logo from './img/mylogo.png';
 
@@ -13,6 +14,7 @@ class Projects extends Component {
         this.state = {
             projectData: [],
             projectNames: ["Portfolio", "PortfolioContact", "ChessMem", "hypoterra", "panalyze", "simpleBlog-client"],
+            fade: false
         }
     }
 
@@ -34,7 +36,7 @@ class Projects extends Component {
     render() {
         return (
             <div>
-                <div>
+                <Fade in={this.state.projectData.length !== 0} {...(this.state.projectData.length !== 0 ? { timeout: 1000 } : {})}>
                     <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
                         <Grid item xs={4}>
                             <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
@@ -54,7 +56,7 @@ class Projects extends Component {
                         }
 
                     </Grid>
-                </div>
+                </Fade>
             </div>
         );
     }

@@ -5,13 +5,29 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import ProfileImage from './img/IMG_1980.jpg';
 import logo from './img/mylogo.png';
+import Fade from '@mui/material/Fade';
 
 
 class Overview extends Component {
 
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        mounted: false,
+      }
+    }
+
+    componentDidMount() {
+      this.setState({
+        mounted: true,
+      })
+    }
+
     render() {
         return (
             <div>
+              <Fade in={this.state.mounted} {...(this.state.mounted ? { timeout: 1000 } : {})}>
                 <Grid container rowSpacing={3} columnSpacing={3} justify="flex-start">
                     <Grid item xs={4} sm={4} md={4} lg={4}>
                         <Avatar sx={{width: 50, height: 50 }} src={logo}></Avatar>
@@ -33,6 +49,7 @@ class Overview extends Component {
                             sx={{minHeight: "40vh"}}
                         >
                             <Grid item>
+
                                 <List>
                                     <ListItem>
                                         <Typography variant="h6">💾 MongoDB for database</Typography>
@@ -63,6 +80,7 @@ class Overview extends Component {
                         </Grid>
                     </Grid>
                 </Grid>
+              </Fade>
             </div>
         )
     }
