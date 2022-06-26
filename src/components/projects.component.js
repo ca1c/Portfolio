@@ -11,7 +11,7 @@ class Projects extends Component {
 
         this.state = {
             projectData: [],
-            projectNames: ["ChessMem", "hypoterra", "panalyze", "simpleBlog-client"],
+            projectNames: ["Portfolio", "PortfolioContact", "ChessMem", "hypoterra", "panalyze", "simpleBlog-client"],
         }
     }
 
@@ -29,7 +29,7 @@ class Projects extends Component {
             })
     }
 
-    
+
     render() {
         return (
             <div>
@@ -43,9 +43,9 @@ class Projects extends Component {
                         </Grid>
                         <Grid item xs={4}></Grid>
                         {/* Headings */}
-                        
+
                         {
-                            this.state.projectData.map((project) => 
+                            this.state.projectData.map((project) =>
                                 <Grid item xs={12} sm={12} md={6} lg={6} key={project.id}>
                                     <ProjectCard name={project.name} githubLink={project.html_url} description={project.description}/>
                                 </Grid>
