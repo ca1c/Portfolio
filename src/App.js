@@ -75,10 +75,6 @@ function App() {
           justifyContent="center"
           style={{
             minHeight: '80vh',
-            height: {
-              xs: "100%",
-              sm: "100%",
-            }
           }}
         >
           <Grid item xs={3}>
