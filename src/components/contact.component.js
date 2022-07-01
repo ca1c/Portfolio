@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Fade from '@mui/material/Fade';
+import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios';
 import logo from './img/mylogo.png';
 
@@ -27,6 +28,7 @@ class Contact extends Component {
             bodyText: "",
             snackBarOpen: false,
             mounted: false,
+            loading: false,
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -49,6 +51,9 @@ class Contact extends Component {
     }
 
     submitMessage() {
+        this.setState({
+            loading: true
+        });
 
         axios({
             method: 'post',
@@ -63,6 +68,7 @@ class Contact extends Component {
         }).then((res) => {
             this.setState({
                 snackBarOpen: true,
+                loading: false,
             });
         })
     }
@@ -100,6 +106,12 @@ class Contact extends Component {
                         </Grid>
                         <Grid item xs={12}>
                             <Button onClick={this.submitMessage}>Submit</Button>
+                            {
+                                this.state.loading ? 
+                                <CircularProgress color="success" />
+                                :
+                                <div></div>
+                            }   
                         </Grid>
                     </Grid>
                   </Fade>
