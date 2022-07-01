@@ -7,7 +7,9 @@ import FormControl from '@mui/material/FormControl';
 import Grid from '@mui/material/Grid';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import Fade from '@mui/material/Fade';
 import axios from 'axios';
+import logo from './img/mylogo.png';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -24,11 +26,18 @@ class Contact extends Component {
             email: "",
             bodyText: "",
             snackBarOpen: false,
+            mounted: false,
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.submitMessage = this.submitMessage.bind(this);
         this.snackBarClose = this.snackBarClose.bind(this);
+    }
+
+    componentDidMount() {
+      this.setState({
+        mounted: true,
+      })
     }
 
     handleInputChange(e) {
@@ -68,9 +77,10 @@ class Contact extends Component {
         return (
             <div>
                 <FormControl>
+                  <Fade in={this.state.mounted} {...(this.state.mounted ? { timeout: 1000 } : {})}>
                     <Grid container rowSpacing={3} columnSpacing={3}>
                         <Grid item xs={4}>
-                            <Avatar sx={{width: 50, height: 50 }}>TB</Avatar>
+                            <Avatar sx={{width: 50, height: 50 }} src={logo} className="scale"></Avatar>
                         </Grid>
                         <Grid item xs={4}>
                             <Typography variant="h3" sx={{textAlign: "center"}}>Contact</Typography>
@@ -92,6 +102,7 @@ class Contact extends Component {
                             <Button onClick={this.submitMessage}>Submit</Button>
                         </Grid>
                     </Grid>
+                  </Fade>
                 </FormControl>
                 <Snackbar open={this.state.snackBarOpen} autoHideDuration={6000} onClose={this.snackBarClose}>
                     <Alert onClose={this.snackBarClose} severity="success" sx={{ width: '100%' }}>

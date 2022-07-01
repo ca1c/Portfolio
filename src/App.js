@@ -1,12 +1,8 @@
 import { useState } from 'react';
-import logo from './logo.svg';
-import { Routes, Route} from 'react-router-dom';
 import About from './components/about.component';
 import Contact from './components/contact.component';
 import Projects from './components/projects.component';
 import Overview from './components/overview.component';
-import Card from '@mui/material/Card';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -17,7 +13,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import './App.css';
-import { ChevronLeft } from '@mui/icons-material';
 
 /*linear-gradient(0deg, #e2008b 0%, #fdb146 49%, #fde767 100%)*/
 
@@ -33,7 +28,7 @@ function App() {
       }
     }
   });
-  
+
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
@@ -78,13 +73,15 @@ function App() {
           direction="column"
           alignItems="center"
           justifyContent="center"
-          style={{ minHeight: '80vh' }}
+          style={{
+            minHeight: '80vh',
+          }}
         >
           <Grid item xs={3}>
             <Paper className="mainCard" sx={{bgcolor: "background.secondary", color: "primary.main"}}>
               <Box sx={{flexGrow: 1}}>
-                <Grid 
-                  container 
+                <Grid
+                  container
                   direction="column"
                   justifyContent="space-between"
                   alignItems="center"
