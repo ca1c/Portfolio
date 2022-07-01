@@ -29,6 +29,8 @@ class Contact extends Component {
             snackBarOpen: false,
             mounted: false,
             loading: false,
+            snackBarMessage: "Message Sent!",
+            severity: "success",
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -68,7 +70,17 @@ class Contact extends Component {
         }).then((res) => {
             this.setState({
                 snackBarOpen: true,
+                snackBarMessage: "Message Sent!",
                 loading: false,
+                severity: "success",
+            });
+        }).catch((err) => {
+            console.log(err);
+            this.setState({
+                snackBarOpen: true,
+                snackBarMessage: "Error Sending Message!",
+                loading: false,
+                severity: "error",
             });
         })
     }
@@ -117,8 +129,8 @@ class Contact extends Component {
                   </Fade>
                 </FormControl>
                 <Snackbar open={this.state.snackBarOpen} autoHideDuration={6000} onClose={this.snackBarClose}>
-                    <Alert onClose={this.snackBarClose} severity="success" sx={{ width: '100%' }}>
-                        Message Sent!
+                    <Alert onClose={this.snackBarClose} severity={this.state.severity} sx={{ width: '100%' }}>
+                        {this.state.snackBarMessage}
                     </Alert>
                 </Snackbar>
             </div>
